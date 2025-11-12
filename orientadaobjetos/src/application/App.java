@@ -1,10 +1,12 @@
 package application;
+import java.util.Locale;
 import java.util.Scanner;
 
 import entidades.Triangulo;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        Locale.setDefault(Locale.US);
         Scanner scan = new Scanner(System.in);
 
         Triangulo x, y;
@@ -22,11 +24,9 @@ public class App {
         y.b = scan.nextDouble();
         y.c = scan.nextDouble();
 
-        double p = x.a + x.b + x.c / 2.0;
-        double areaX = Math.sqrt(p*(p-x.a)*(p-x.b)*(p-x.c));
-
-        p = y.a + y.b + y.c/ 2.0;
-        double areaY = Math.sqrt(p*(p-y.a)*(p-y.b)*(p-y.c));
+    
+        double areaX = x.area();
+        double areaY = y.area();
 
         System.out.printf("Area do triangulo X: %.4f%n", areaX);
         System.out.printf("Area do triangulo Y: %.4f%n", areaY);
